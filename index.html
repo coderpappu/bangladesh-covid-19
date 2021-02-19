@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bangladesh covid-19 </title>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body >
+        <div id="container">
+            <div class="covid">
+                <div class="covid_head">
+                    <div class="covid_head_text">
+                        <h1>Bangladesh <span>Covid-19</span></h1>
+                    </div>
+                </div>
+                <div class="country_dasboard">
+                    <div id="sec_NewConfirmed">
+                        <h2>New infected</h2>
+                        <h2 id="Newinfected"></h2>
+                    </div>
+                    <div id="sec_TotalConfirmed">
+                        <h2>Total infected</h2>
+                        <h2 id="TotalConfirmed"></h2>
+                    </div>
+                    <div id="sec_NewRecoverd">
+                        <h2>New Recoverd</h2>
+                        <h2 id="NewRecoverd"></h2>
+                    </div>
+                    <div id="sec_TotalRecovered">
+                        <h2>Total Recovered</h2>
+                        <h2 id="TotalRecovered"></h2>
+                    </div>
+                    <div id="sec_Date">
+                        <h2>New Dates</h2>
+                        <h2 id="Date"></h2>
+                    </div>
+                    <div id="sec_TotalDeaths">
+                        <h2>Total Deaths</h2>
+                        <h2 id="TotalDeaths"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+        fetch('https://corona.lmao.ninja/v2/countries/bangladesh')
+            .then((response)=>{
+                return response.json();
+            })
+            .then((data)=>{
+                document.getElementById('NewRecoverd').innerHTML =data.todayRecovered;
+                document.getElementById('Newinfected').innerHTML =data.todayCases;
+                document.getElementById('TotalConfirmed').innerHTML =data.cases;
+                document.getElementById('TotalRecovered').innerHTML =data.todayCases;
+                document.getElementById('TotalDeaths').innerHTML =data.deaths;
+                document.getElementById('Date').innerHTML =data.todayDeaths;
+                
+            })
+        </script>
+    </body>
+</html>
